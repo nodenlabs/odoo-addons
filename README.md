@@ -12,10 +12,6 @@
 
 <br>
 
-[![Odoo 18.0](https://img.shields.io/badge/Odoo-18.0-714B67?style=for-the-badge&logo=odoo&logoColor=white)](https://github.com/nodenlabs/odoo-addons/tree/18.0)
-[![Odoo 19.0](https://img.shields.io/badge/Odoo-19.0-714B67?style=for-the-badge&logo=odoo&logoColor=white)](https://github.com/nodenlabs/odoo-addons/tree/19.0)
-[![Odoo 20.0](https://img.shields.io/badge/Odoo-20.0-714B67?style=for-the-badge&logo=odoo&logoColor=white)](https://github.com/nodenlabs/odoo-addons/tree/20.0)
-
 [![License: LGPL-3](https://img.shields.io/badge/license-LGPL--3-blue.svg)](LICENSE)
 [![Odoo Apps](https://img.shields.io/badge/Odoo%20Apps-Noden%20Labs-875A7B.svg)](https://apps.odoo.com/apps/modules/browse?author=Noden%20Labs)
 [![Website](https://img.shields.io/badge/web-sentilis.me%2Fnoden-0A0A0A.svg)](https://sentilis.me/noden)
@@ -24,24 +20,9 @@
 [**Modules**](#-modules) ·
 [**Installation**](#-installation) ·
 [**Branches**](#-branches) ·
-[**Contributing**](#-contributing) ·
-[**Support**](#-support)
+[**Contributing**](#-contributing)
 
 </div>
-
----
-
-## 👋 About
-
-This repository is the home of the **open-source Odoo addons** built and maintained by
-[**Noden Labs**](https://sentilis.me/noden), an engineering team that specializes in Odoo
-for companies in **LATAM**.
-
-Our modules come from real implementations in retail, distribution, pharmacy and services.
-We write them to the [OCA guidelines](https://github.com/OCA/odoo-community.org/blob/master/website/Contribution/CONTRIBUTING.rst),
-keep them small and focused, and maintain them across Odoo releases.
-
-> **We build it, and we stay when it changes.**
 
 ---
 
@@ -75,12 +56,15 @@ this landing page. Pick the branch that matches your Odoo server.
 
 <sub>Legend: ✅ available · 🚧 in progress · — not planned. Click a version to open the module on that branch.</sub>
 
-### 🛒 Also on the Odoo Apps Store
+### 🛒 Commercial connectors
 
-Noden Labs also publishes **commercial connectors** (SkydropX, Aplin and others) on the
-official Odoo Apps Store. Each one includes implementation support.
+Noden Labs also sells **commercial connectors** (SkydropX, Aplin and others) on the
+Noden Market and the official Odoo Apps Store. Each one includes implementation support.
 
 <p>
+  <a href="https://sentilis.me/noden/market">
+    <img src="https://img.shields.io/badge/Browse%20on-Noden%20Market-0A0A0A?style=for-the-badge" alt="Browse the Noden Market">
+  </a>
   <a href="https://apps.odoo.com/apps/modules/browse?author=Noden%20Labs">
     <img src="https://img.shields.io/badge/Browse%20on-apps.odoo.com-714B67?style=for-the-badge&logo=odoo&logoColor=white" alt="Browse Noden Labs on the Odoo Apps Store">
   </a>
@@ -180,24 +164,6 @@ Contributions are welcome: bug reports, fixes, translations, ports and new featu
 
 > [!NOTE]
 > Pull Requests go to the matching version branch (`18.0`, `19.0` or `20.0`), never to `main`.
-
----
-
-## 💬 Support
-
-| Need | Where |
-| :--- | :---- |
-| 🐞 Bug or feature request | [Open an issue](https://github.com/nodenlabs/odoo-addons/issues/new/choose) |
-| 🛠️ Implementation, custom development or maintenance | [sentilis.me/noden](https://sentilis.me/noden) |
-| 💬 Talk to the team | [Inbox](https://sentilis.me/noden/inbox) · [Facebook](https://www.facebook.com/NodenLabs) |
-| 🛒 Commercial connectors | [Odoo Apps Store](https://apps.odoo.com/apps/modules/browse?author=Noden%20Labs) |
-
-### What we do
-
-- **Implement** Odoo around your business, with tax and accounting set up for Mexico and LATAM.
-- **Build** the modules Odoo is missing, to OCA standards.
-- **Automate** with AI agents that work on your real data.
-- **Maintain** your system when Odoo or third-party providers change.
 
 ---
 
