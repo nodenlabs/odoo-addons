@@ -1,0 +1,317 @@
+<!--
+    Copyright © 2026 Noden Labs (https://sentilis.me/noden)
+    All rights reserved. Licensed under OPL-1.
+    See: https://www.odoo.com/documentation/user/legal/licenses/licenses.html
+-->
+<div class="oe_structure">
+
+    <!-- Banner -->
+    <section class="container pt-4">
+        <img src="cover.png" class="img-fluid rounded w-100" alt="AutoInvoice MX: CFDI 4.0 Self-Billing for Odoo"/>
+    </section>
+
+    <!-- Hero -->
+    <section class="container py-5">
+        <p class="text-uppercase text-primary fw-bold small mb-2">Noden Labs &middot; Odoo 20 Enterprise &middot; Mexico</p>
+        <h1 class="display-5 fw-bold mb-3">CFDI 4.0 Self-Billing for Marketplaces</h1>
+        <p class="h4 fw-normal mb-3">AutoInvoice MX: let your Mercado Libre and Amazon customers invoice themselves. You just sell.</p>
+        <p class="lead text-muted mb-4" style="max-width: 46rem">
+            Self-service <strong>CFDI 4.0</strong> invoicing for sellers on
+            <strong>Mercado Libre</strong>, <strong>Amazon</strong>, Yuju or their own store.
+            The customer enters an order number and an RFC; Odoo creates the invoice,
+            <strong>stamps it</strong> and hands it over in seconds. No &ldquo;can you invoice
+            me?&rdquo; emails, no typing tax data by hand, no SAT rejections.
+        </p>
+        <p class="mb-3">
+            <span class="badge rounded-pill bg-primary me-1">Free</span>
+            <span class="badge rounded-pill bg-light text-dark border me-1">Odoo 20.0 Enterprise</span>
+            <span class="badge rounded-pill bg-light text-dark border me-1">Mexico only &middot; CFDI 4.0</span>
+            <span class="badge rounded-pill bg-light text-dark border">Spanish customer-facing pages</span>
+        </p>
+    </section>
+
+    <!-- Problem -->
+    <section class="container py-5 border-top">
+        <h2 class="fw-bold mb-2">Invoicing every marketplace sale costs more than it looks</h2>
+        <p class="text-muted mb-4" style="max-width: 46rem">
+            Every &ldquo;I need an invoice&rdquo; is a message, a data-entry session, a stamping
+            run and an email. Multiply by hundreds of orders a month and it is a full-time job
+            &mdash; and every typo in an RFC or postal code is a cancellation.
+        </p>
+        <div class="row g-4">
+            <div class="col-md-4"><div class="card h-100"><div class="card-body">
+                <i class="fa fa-2x fa-clock-o text-danger mb-3 d-block" aria-hidden="true"></i>
+                <h3 class="h5 fw-bold">Hours of data entry</h3>
+                <p class="text-muted mb-0">Find the order, copy the RFC, pick the tax regime and CFDI use, stamp, send.</p>
+            </div></div></div>
+            <div class="col-md-4"><div class="card h-100"><div class="card-body">
+                <i class="fa fa-2x fa-exclamation-triangle text-danger mb-3 d-block" aria-hidden="true"></i>
+                <h3 class="h5 fw-bold">SAT rejections</h3>
+                <p class="text-muted mb-0">Legal name with &ldquo;S.A. de C.V.&rdquo;, a postal code that doesn&rsquo;t match, a regime that doesn&rsquo;t fit the RFC.</p>
+            </div></div></div>
+            <div class="col-md-4"><div class="card h-100"><div class="card-body">
+                <i class="fa fa-2x fa-calendar-times-o text-danger mb-3 d-block" aria-hidden="true"></i>
+                <h3 class="h5 fw-bold">Invoices out of period</h3>
+                <p class="text-muted mb-0">The customer asks weeks later and your accountant has already closed the month.</p>
+            </div></div></div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="container py-5 border-top">
+        <h2 class="fw-bold mb-2">As simple as it gets</h2>
+        <p class="text-muted mb-4" style="max-width: 46rem">
+            Two paths, same result: a stamped, delivered CFDI 4.0. Use one or both.
+        </p>
+        <div class="row g-4">
+            <div class="col-lg-6"><div class="card h-100 border-primary"><div class="card-body">
+                <p class="text-uppercase text-primary fw-bold small mb-1">Path 1 &middot; Self-service</p>
+                <h3 class="h4 fw-bold mb-3">The customer invoices at <code>/billing</code></h3>
+                <ol class="mb-3">
+                    <li class="mb-2"><strong>Share the link</strong> on your site, in the parcel or in your thank-you message.</li>
+                    <li class="mb-2"><strong>The customer enters</strong> their order number and RFC.</li>
+                    <li class="mb-2"><strong>They confirm</strong> name, postal code, tax regime, CFDI use and payment method.</li>
+                    <li><strong>They receive</strong> the stamped invoice, ready to download.</li>
+                </ol>
+                <p class="text-muted small mb-0">
+                    Accepts the Mercado Libre order number (including carts with several orders), the
+                    Amazon order ID &mdash; with or without dashes &mdash; and the Yuju or Odoo sale reference.
+                    The link can carry the order number pre-filled.
+                </p>
+            </div></div></div>
+            <div class="col-lg-6"><div class="card h-100 border-success"><div class="card-body">
+                <p class="text-uppercase text-success fw-bold small mb-1">Path 2 &middot; Fully automatic</p>
+                <h3 class="h4 fw-bold mb-3">Invoice on delivery, nobody asks for anything</h3>
+                <ol class="mb-3">
+                    <li class="mb-2"><strong>Your regular customer</strong> saves their tax data once in the portal at <code>/my/billing</code> and turns on <em>Automatic invoicing</em>.</li>
+                    <li class="mb-2"><strong>You validate the delivery</strong> in Odoo, as always.</li>
+                    <li class="mb-2"><strong>Odoo invoices what was delivered</strong>, stamps it and emails it.</li>
+                </ol>
+                <p class="text-muted small mb-0">
+                    Ideal for distributors and repeat buyers: zero clicks from your team and zero
+                    messages from the customer. Partial deliveries are invoiced for what shipped.
+                </p>
+            </div></div></div>
+        </div>
+        <div class="row g-4 mt-1">
+            <div class="col-lg-6"><figure class="figure w-100 mt-4">
+            <img src="01-billing-folio.png" class="figure-img img-fluid rounded border w-100" alt="The customer enters their RFC and the order number. Amazon IDs work with or without dashes."/>
+            <figcaption class="figure-caption">The customer enters their RFC and the order number. Amazon IDs work with or without dashes.</figcaption>
+        </figure></div>
+            <div class="col-lg-6"><figure class="figure w-100 mt-4">
+            <img src="02-billing-datos-fiscales.png" class="figure-img img-fluid rounded border w-100" alt="Tax data comes pre-filled from the RFC. One click and the stamped CFDI is ready."/>
+            <figcaption class="figure-caption">Tax data comes pre-filled from the RFC. One click and the stamped CFDI is ready.</figcaption>
+        </figure></div>
+        </div>
+    </section>
+
+    <!-- Marketplaces -->
+    <section class="container py-5 border-top">
+        <h2 class="fw-bold mb-2">Built for the marketplaces you already sell on</h2>
+        <p class="text-muted mb-4" style="max-width: 46rem">
+            The order number each channel stores is recognised automatically. No mapping tables,
+            no configuration: it uses whatever you have installed.
+        </p>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6"><div class="card h-100"><div class="card-body">
+                <i class="fa fa-2x fa-amazon text-primary mb-3 d-block" aria-hidden="true"></i>
+                <h3 class="h5 fw-bold">Amazon &middot; native</h3>
+                <p class="text-muted mb-0">Works with Odoo&rsquo;s native Amazon connector (<code>sale_amazon</code>) out of the box, and with <code>noden_amazon</code> on top of it. Amazon order IDs are accepted with or without dashes.</p>
+            </div></div></div>
+            <div class="col-lg-3 col-md-6"><div class="card h-100"><div class="card-body">
+                <i class="fa fa-2x fa-shopping-bag text-primary mb-3 d-block" aria-hidden="true"></i>
+                <h3 class="h5 fw-bold">Mercado Libre</h3>
+                <p class="text-muted mb-0">Recognises the order number from <code>noden_mercadolibre</code>, including carts that group several orders into one sale.</p>
+            </div></div></div>
+            <div class="col-lg-3 col-md-6"><div class="card h-100"><div class="card-body">
+                <i class="fa fa-2x fa-exchange text-primary mb-3 d-block" aria-hidden="true"></i>
+                <h3 class="h5 fw-bold">Yuju</h3>
+                <p class="text-muted mb-0">Uses the channel order reference Yuju stores on the sale, so multichannel sellers are covered too.</p>
+            </div></div></div>
+            <div class="col-lg-3 col-md-6"><div class="card h-100"><div class="card-body">
+                <i class="fa fa-2x fa-globe text-primary mb-3 d-block" aria-hidden="true"></i>
+                <h3 class="h5 fw-bold">Your own store</h3>
+                <p class="text-muted mb-0">Any Odoo sale can be invoiced with its own number: website, B2B, counter sales.</p>
+            </div></div></div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="container py-5 border-top">
+        <h2 class="fw-bold mb-2">Everything you get</h2>
+        <p class="text-muted mb-4" style="max-width: 46rem">
+            Designed for the day-to-day of a Mexican marketplace seller.
+        </p>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6"><div class="card h-100"><div class="card-body">
+                <i class="fa fa-2x fa-bolt text-primary mb-3 d-block" aria-hidden="true"></i>
+                <h3 class="h5 card-title fw-bold">Stamped on the spot</h3>
+                <p class="card-text text-muted">
+                    Creates the invoice, posts it and stamps it with Odoo&rsquo;s CFDI 4.0. The
+                    customer sees the stamped PDF and XML, without waiting for someone to send them.
+                </p>
+            </div></div></div>
+            <div class="col-lg-4 col-md-6"><div class="card h-100"><div class="card-body">
+                <i class="fa fa-2x fa-check-square-o text-primary mb-3 d-block" aria-hidden="true"></i>
+                <h3 class="h5 card-title fw-bold">Validated tax data</h3>
+                <p class="card-text text-muted">
+                    Checks the RFC (individual, company or generic), the 5-digit postal code and that
+                    the regime fits the type of person. Uppercases the legal name and strips the
+                    company type (S.A. de C.V., S. de R.L.&hellip;) as the SAT requires.
+                </p>
+            </div></div></div>
+            <div class="col-lg-4 col-md-6"><div class="card h-100"><div class="card-body">
+                <i class="fa fa-2x fa-truck text-primary mb-3 d-block" aria-hidden="true"></i>
+                <h3 class="h5 card-title fw-bold">Only invoices what shipped</h3>
+                <p class="card-text text-muted">
+                    Rejects unconfirmed or undispatched orders with a clear message. You never invoice
+                    goods that haven&rsquo;t left your warehouse.
+                </p>
+            </div></div></div>
+            <div class="col-lg-4 col-md-6"><div class="card h-100"><div class="card-body">
+                <i class="fa fa-2x fa-repeat text-primary mb-3 d-block" aria-hidden="true"></i>
+                <h3 class="h5 card-title fw-bold">If the PAC fails, it retries</h3>
+                <p class="card-text text-muted">
+                    A stamping error never undoes the delivery. The posted invoice stays safe and Odoo
+                    retries up to three times; if it still fails, the sale shows <em>Error</em> with
+                    the PAC&rsquo;s reason.
+                </p>
+            </div></div></div>
+            <div class="col-lg-4 col-md-6"><div class="card h-100"><div class="card-body">
+                <i class="fa fa-2x fa-files-o text-primary mb-3 d-block" aria-hidden="true"></i>
+                <h3 class="h5 card-title fw-bold">Never duplicates an invoice</h3>
+                <p class="card-text text-muted">
+                    If the customer enters the number again, they get the existing invoice instead of a
+                    new one. A leftover draft never blocks the retry.
+                </p>
+            </div></div></div>
+            <div class="col-lg-4 col-md-6"><div class="card h-100"><div class="card-body">
+                <i class="fa fa-2x fa-user-circle text-primary mb-3 d-block" aria-hidden="true"></i>
+                <h3 class="h5 card-title fw-bold">Customer portal</h3>
+                <p class="card-text text-muted">
+                    At <code>/my/billing</code> each customer keeps their RFC, legal name, postal code,
+                    regime and CFDI use, with the SAT requirements in view. The RFC locks once invoices
+                    exist, so nobody rewrites their tax history.
+                </p>
+            </div></div></div>
+        </div>
+        <div class="alert alert-light border mt-4 mb-0">
+            <strong>For your team.</strong> The contact flags incomplete tax data, and the sale shows the
+            automatic-invoicing state (Pending, Invoiced, Skipped, Error) with the detail. You can also run
+            <em>Invoice, stamp and send to customer</em> on one or many sales from the list. Sales flagged
+            &ldquo;CFDI to the public&rdquo; are skipped so they don&rsquo;t clash with your global invoice.
+        </div>
+        <figure class="figure w-100 mt-4">
+            <img src="03-portal-mi-facturacion.png" class="figure-img img-fluid rounded border w-100" alt="Customer portal: tax data once, with the SAT requirements in view and the automatic-invoicing switch."/>
+            <figcaption class="figure-caption">Customer portal: tax data once, with the SAT requirements in view and the automatic-invoicing switch.</figcaption>
+        </figure>
+        <figure class="figure w-100 mt-4">
+            <img src="04-venta-estado-autofactura.png" class="figure-img img-fluid rounded border w-100" alt="On the sale your team sees the automatic-invoicing state and the PAC&rsquo;s reason if something fails."/>
+            <figcaption class="figure-caption">On the sale your team sees the automatic-invoicing state and the PAC&rsquo;s reason if something fails.</figcaption>
+        </figure>
+    </section>
+
+    <!-- ROI -->
+    <section class="container py-5 border-top">
+        <h2 class="fw-bold mb-2">It pays for itself</h2>
+        <p class="text-muted mb-4" style="max-width: 46rem">
+            If you spend just 5 minutes per requested invoice, 200 invoices a month is more than
+            16 hours of work. AutoInvoice MX brings it to zero.
+        </p>
+        <div class="row g-4 text-center">
+            <div class="col-md-4"><div class="card h-100"><div class="card-body">
+                <div class="display-5 fw-bold text-primary">0</div>
+                <p class="text-muted mb-0">minutes of data entry per invoice</p>
+            </div></div></div>
+            <div class="col-md-4"><div class="card h-100"><div class="card-body">
+                <div class="display-5 fw-bold text-primary">24/7</div>
+                <p class="text-muted mb-0">customers invoice themselves at any hour</p>
+            </div></div></div>
+            <div class="col-md-4"><div class="card h-100"><div class="card-body">
+                <div class="display-5 fw-bold text-primary">$0</div>
+                <p class="text-muted mb-0">free module, no per-invoice fees</p>
+            </div></div></div>
+        </div>
+    </section>
+
+    <!-- Requirements -->
+    <section class="container py-5 border-top">
+        <h2 class="fw-bold mb-4">Requirements</h2>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6"><div class="card h-100"><div class="card-body">
+                <h3 class="h5 card-title fw-bold">Odoo</h3>
+                <p class="card-text text-muted mb-0">
+                    Version 20.0 <strong>Enterprise</strong> with the Mexican localization and electronic
+                    invoicing (<code>l10n_mx_edi</code>) configured with your PAC. Uses Sales, Inventory,
+                    Accounting, Website and Portal.
+                </p>
+            </div></div></div>
+            <div class="col-lg-4 col-md-6"><div class="card h-100"><div class="card-body">
+                <h3 class="h5 card-title fw-bold">Country</h3>
+                <p class="card-text text-muted mb-0">
+                    Built exclusively for <strong>Mexico</strong>: CFDI 4.0, SAT catalogues (regimes, CFDI
+                    use, payment methods) and RFC validation rules.
+                </p>
+            </div></div></div>
+            <div class="col-lg-4 col-md-6"><div class="card h-100"><div class="card-body">
+                <h3 class="h5 card-title fw-bold">Marketplaces</h3>
+                <p class="card-text text-muted mb-0">
+                    Optional: with native Amazon (<code>sale_amazon</code>), <code>noden_mercadolibre</code>,
+                    <code>noden_amazon</code> or Yuju installed, their order numbers are recognised
+                    immediately. Without them it works on your Odoo sales.
+                </p>
+            </div></div></div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="container py-5 border-top">
+        <h2 class="fw-bold mb-4">Questions</h2>
+        <details class="border-bottom py-3">
+            <summary class="fw-bold">Does it work on Odoo Community?</summary>
+            <p class="text-muted mt-2 mb-0">No. It is built for Odoo Enterprise with Mexican electronic invoicing enabled and a PAC configured.</p>
+        </details>
+        <details class="border-bottom py-3">
+            <summary class="fw-bold">Do I need Mercado Libre or Amazon connectors?</summary>
+            <p class="text-muted mt-2 mb-0">No. Any Odoo sale can be invoiced by its number. The native Amazon connector, the Noden connectors and Yuju only add recognition of the marketplace order number.</p>
+        </details>
+        <details class="border-bottom py-3">
+            <summary class="fw-bold">What if the customer asks before receiving the product?</summary>
+            <p class="text-muted mt-2 mb-0">They are told the order hasn&rsquo;t been dispatched yet and can come back once it is delivered. Goods that haven&rsquo;t shipped are never invoiced.</p>
+        </details>
+        <details class="border-bottom py-3">
+            <summary class="fw-bold">What if the PAC rejects the CFDI?</summary>
+            <p class="text-muted mt-2 mb-0">In self-service the customer sees a readable reason and can fix their data. In automatic invoicing the invoice stays posted, is retried, and the error is recorded on the sale.</p>
+        </details>
+        <details class="border-bottom py-3">
+            <summary class="fw-bold">Is the customer-facing page in Spanish?</summary>
+            <p class="text-muted mt-2 mb-0">Yes. The <code>/billing</code> and <code>/my/billing</code> pages speak to Mexican customers in Spanish.</p>
+        </details>
+        <details class="py-3">
+            <summary class="fw-bold">Is it tested?</summary>
+            <p class="text-muted mt-2 mb-0">Yes. Automated tests cover the full delivery, invoicing, stamping and email flow, PAC errors with retries, tax-data validation and the customer portal.</p>
+        </details>
+    </section>
+
+    <!-- Support -->
+    <section class="container py-5 border-top">
+        <h2 class="fw-bold mb-2">Support</h2>
+        <p class="text-muted mb-4" style="max-width: 46rem">
+            Support is provided by Noden Labs. Write to
+            <a href="mailto:noden@sentilis.me">noden@sentilis.me</a> and include the sale reference
+            &mdash; the automatic-invoicing detail tells us most of what we need.
+        </p>
+        <div class="row g-4 mb-4">
+            <div class="col-lg-4 col-md-6"><h4 class="h6 fw-bold mb-1">Website</h4><p class="mb-0"><a href="https://sentilis.me/noden" target="_blank" rel="noopener">sentilis.me/noden</a></p></div>
+            <div class="col-lg-4 col-md-6"><h4 class="h6 fw-bold mb-1">Source code</h4><p class="mb-0"><a href="https://github.com/nodenlabs" target="_blank" rel="noopener">github.com/nodenlabs</a></p></div>
+            <div class="col-lg-4 col-md-6"><h4 class="h6 fw-bold mb-1">Video tutorials</h4><p class="mb-0"><a href="https://www.youtube.com/@nodenlabs" target="_blank" rel="noopener">youtube.com/@nodenlabs</a></p></div>
+        </div>
+        <p class="text-muted small border-top pt-3 mb-0">
+            Noden Labs &middot;
+            <a href="https://www.facebook.com/nodenlabs" target="_blank" rel="noopener">Facebook</a> &middot;
+            <a href="https://www.youtube.com/@nodenlabs" target="_blank" rel="noopener">YouTube</a> &middot;
+            <a href="mailto:noden@sentilis.me">noden@sentilis.me</a>
+        </p>
+    </section>
+
+</div>

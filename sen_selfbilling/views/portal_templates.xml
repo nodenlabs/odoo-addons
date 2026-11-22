@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- v20: las tarjetas de /my/home son registros portal.entry (data/portal_entry_data.xml).
+         portal.portal_docs_entry sólo muestra textos fijos del registro; el estado de la
+         facturación automática depende del usuario, así que se agrega aquí. -->
+    <template id="portal_docs_entry_billing" name="Facturación: estado" inherit_id="portal.portal_docs_entry" priority="40">
+        <xpath expr="//p[@t-field='entry.description']" position="after">
+            <p t-if="entry == request.env.ref('sen_selfbilling.portal_entry_billing', raise_if_not_found=False)"
+               class="mt-1 mb-0">
+                <t t-set="billing_partner" t-value="request.env.user.partner_id.commercial_partner_id.sudo()"/>
+                Facturación automática:
+                <b t-if="billing_partner.selfbilling_auto">Activa</b>
+                <b t-else="">Inactiva</b>
+            </p>
+        </xpath>
+    </template>
+
+    <template id="portal_breadcrumbs_billing" inherit_id="portal.portal_breadcrumbs" priority="40">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'billing'" class="breadcrumb-item">Facturación</li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_billing" name="Facturación">
+        <t t-call="portal.portal_layout" breadcrumbs_searchbar="True">
+            <div class="row mt-3">
+                <div class="col-lg-8">
+                    <h3 class="mb-3">Facturación</h3>
+
+                    <div t-if="saved" class="alert alert-success" role="status">
+                        Sus datos fiscales se guardaron.
+                    </div>
+
+                    <div class="alert alert-info" role="note">
+                        <h5 class="alert-heading"><i class="oi oi-filled me-1" data-icon="info"/>Actualice sus datos fiscales</h5>
+                        <p class="mb-1">
+                            Por disposición del SAT, el CFDI 4.0 requiere que estos 5 datos coincidan exactamente con su
+                            <b>Constancia de Situación Fiscal</b>; si alguno no coincide, la factura será rechazada:
+                        </p>
+                        <ol class="mb-1">
+                            <li>RFC correcto.</li>
+                            <li>Nombre o razón social en MAYÚSCULAS, sin régimen societario (sin «S.A. DE C.V.»).</li>
+                            <li>Código postal del domicilio fiscal.</li>
+                            <li>Régimen fiscal.</li>
+                            <li>Uso de la factura (CFDI).</li>
+                        </ol>
+                        <small>Más información en <a href="https://www.sat.gob.mx" target="_blank" rel="noopener">www.sat.gob.mx</a>.</small>
+                    </div>
+
+                    <form action="/my/billing" method="post" class="mt-4">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div t-if="errors" class="alert alert-danger" role="alert">
+                            Revise los datos marcados.
+                        </div>
+
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h5 class="card-title mb-1">Facturación automática</h5>
+                                        <p class="text-muted mb-0">
+                                            Al enviar su pedido le facturamos automáticamente con estos datos y le
+                                            mandamos la factura (PDF y XML) por correo<t t-if="invoice_email"> a
+                                            <b t-out="invoice_email"/></t>.
+                                        </p>
+                                    </div>
+                                    <div class="form-check form-switch fs-4 ms-3">
+                                        <input class="form-check-input" type="checkbox" role="switch"
+                                               id="selfbilling_auto" name="selfbilling_auto" value="1"
+                                               t-att-checked="auto or None"/>
+                                        <label class="visually-hidden" for="selfbilling_auto">Facturación automática</label>
+                                    </div>
+                                </div>
+                                <div t-if="not invoice_email" class="alert alert-warning mt-3 mb-0">
+                                    Su cuenta no tiene correo electrónico: la factura se generará, pero no se le podrá
+                                    enviar. Agréguelo en <a href="/my/account">sus datos</a>.
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5>Datos fiscales</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label" for="vat">RFC</label>
+                                <input type="text" id="vat" name="vat" maxlength="13" placeholder="GODE561231GR8"
+                                       t-att-value="data.get('vat')" t-att-readonly="not can_edit_vat or None"
+                                       t-attf-class="form-control text-uppercase #{'is-invalid' if errors.get('vat') else ''}"/>
+                                <div t-if="errors.get('vat')" class="invalid-feedback" t-out="errors['vat']"/>
+                                <small t-if="not can_edit_vat" class="text-muted">
+                                    Ya tiene facturas emitidas con este RFC. Para cambiarlo, contáctenos.
+                                </small>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label" for="zip">Código postal fiscal</label>
+                                <input type="text" id="zip" name="zip" maxlength="5" inputmode="numeric"
+                                       t-att-value="data.get('zip')"
+                                       t-attf-class="form-control #{'is-invalid' if errors.get('zip') else ''}"/>
+                                <div t-if="errors.get('zip')" class="invalid-feedback" t-out="errors['zip']"/>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label class="form-label" for="name">Nombre o razón social</label>
+                                <input type="text" id="name" name="name" placeholder="TAL COMO APARECE EN SU CONSTANCIA"
+                                       t-att-value="data.get('name')"
+                                       t-attf-class="form-control text-uppercase #{'is-invalid' if errors.get('name') else ''}"/>
+                                <div t-if="errors.get('name')" class="invalid-feedback" t-out="errors['name']"/>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label" for="l10n_mx_edi_fiscal_regime">Régimen fiscal</label>
+                                <select id="l10n_mx_edi_fiscal_regime" name="l10n_mx_edi_fiscal_regime"
+                                        t-attf-class="form-select #{'is-invalid' if errors.get('l10n_mx_edi_fiscal_regime') else ''}">
+                                    <option value="">Seleccione…</option>
+                                    <t t-foreach="fiscal_regimes" t-as="regime">
+                                        <option t-att-value="regime[0]"
+                                                t-att-selected="data.get('l10n_mx_edi_fiscal_regime') == regime[0] or None">
+                                            <t t-out="regime[0]"/> - <t t-out="regime[1]"/>
+                                        </option>
+                                    </t>
+                                </select>
+                                <div t-if="errors.get('l10n_mx_edi_fiscal_regime')" class="invalid-feedback"
+                                     t-out="errors['l10n_mx_edi_fiscal_regime']"/>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label" for="l10n_mx_edi_usage">Uso del CFDI</label>
+                                <select id="l10n_mx_edi_usage" name="l10n_mx_edi_usage"
+                                        t-attf-class="form-select #{'is-invalid' if errors.get('l10n_mx_edi_usage') else ''}">
+                                    <option value="">Seleccione…</option>
+                                    <t t-foreach="cfdi_usages" t-as="usage">
+                                        <option t-att-value="usage[0]"
+                                                t-att-selected="data.get('l10n_mx_edi_usage') == usage[0] or None">
+                                            <t t-out="usage[0]"/> - <t t-out="usage[1]"/>
+                                        </option>
+                                    </t>
+                                </select>
+                                <div t-if="errors.get('l10n_mx_edi_usage')" class="invalid-feedback"
+                                     t-out="errors['l10n_mx_edi_usage']"/>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <a href="/billing" class="btn btn-link px-0">Facturar una compra anterior</a>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

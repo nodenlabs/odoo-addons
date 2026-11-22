@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Tarjeta «Facturación» de /my/home (v20: antes se inyectaba en portal.portal_my_home). -->
+    <record id="portal_entry_billing" model="portal.entry">
+        <field name="name">Facturación</field>
+        <field name="description">Datos fiscales y facturación automática</field>
+        <field name="url">/my/billing</field>
+        <field name="image" type="bytes" file="account/static/src/img/bill.svg"/>
+        <field name="category">client_category</field>
+        <field name="is_config_card" eval="True"/>
+        <field name="sequence" eval="45"/>
+    </record>
+</odoo>
