@@ -1,0 +1,76 @@
+name: 🐞 Bug report
+description: Something in a module is not working as expected.
+title: "[BUG] module_name: short description"
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! Please search [existing issues](https://github.com/nodenlabs/odoo-addons/issues) first to avoid duplicates.
+  - type: input
+    id: module
+    attributes:
+      label: Module
+      description: Technical name of the affected module.
+      placeholder: module_name
+    validations:
+      required: true
+  - type: dropdown
+    id: branch
+    attributes:
+      label: Odoo version / branch
+      options:
+        - "20.0"
+        - "19.0"
+        - "18.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Odoo edition
+      options:
+        - Community
+        - Enterprise
+        - Odoo.sh
+    validations:
+      required: true
+  - type: input
+    id: module_version
+    attributes:
+      label: Module version
+      description: The `version` field in the module's `__manifest__.py`.
+      placeholder: 19.0.1.0.0
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to ...
+        2. Click on ...
+        3. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Server log / traceback
+      description: Paste the relevant part of the Odoo log. Remove any secrets or customer data.
+      render: shell
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Screenshots, other installed modules, anything else that helps.

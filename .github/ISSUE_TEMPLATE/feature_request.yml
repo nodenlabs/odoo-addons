@@ -1,0 +1,48 @@
+name: ✨ Feature request
+description: Suggest an improvement or a new module.
+title: "[FEAT] module_name: short description"
+labels: ["enhancement"]
+body:
+  - type: input
+    id: module
+    attributes:
+      label: Module
+      description: Technical name of the module, or "new module".
+      placeholder: module_name
+    validations:
+      required: true
+  - type: dropdown
+    id: branch
+    attributes:
+      label: Odoo version / branch
+      multiple: true
+      options:
+        - "20.0"
+        - "19.0"
+        - "18.0"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What are you trying to do, and what is getting in the way?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: How would you like it to work?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contribution
+      options:
+        - label: I'm willing to open a Pull Request for this.

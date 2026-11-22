@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🛠️ Implementation & custom development
+    url: https://sentilis.me/noden
+    about: Need Odoo implementation, a custom module or maintenance? Talk to Noden Labs.
+  - name: 💬 Talk to the team
+    url: https://sentilis.me/noden/inbox
+    about: Questions that aren't bug reports or feature requests.
+  - name: 🛒 Commercial connectors
+    url: https://apps.odoo.com/apps/modules/browse?author=Noden%20Labs
+    about: Support for paid modules published on the Odoo Apps Store.
