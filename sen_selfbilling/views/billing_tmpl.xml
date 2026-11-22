@@ -1,0 +1,429 @@
+<odoo>
+
+  <template id="portal_selfbilling" name="My Sales Orders Inherit">
+    <t t-call="website.layout">
+      <div class="oe_structure">
+        <div class="container">
+          <t t-if="step == 'partner-address'">
+            <t t-call="sen_selfbilling.portal_selfbilling_step_2" />
+          </t>
+          <t t-elif="step == 'self-billing'">
+            <t t-call="sen_selfbilling.portal_selfbilling_step_3" />
+
+          </t>
+          <t t-else="">
+            <t t-call="sen_selfbilling.portal_selfbilling_step_1" />
+          </t>
+        </div>
+      </div>
+    </t>
+  </template>
+  <template id="portal_selfbilling_step_1">
+    <section class="s_text_image  pt72 pb72 o_colored_level" data-snippet="s_text_image"
+      data-name="Texto - Imagen" style="background-image: none; --darkreader-inline-bgimage: none;"
+      data-darkreader-inline-bgimage="">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 pt16 pb16 o_colored_level">
+            <h2 class="o_default_snippet_text">
+              Autofacturación
+            </h2>
+            <p>
+
+            </p>
+            <p class="o_default_snippet_text">
+              Capture el folio de Odoo, Mercadolibre o Amazon para generar su factura.
+            </p>
+            <p>
+              <form action="/billing" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                <input type="hidden" name="step" value="validate-folio" />
+                <div class="s_website_form_rows row s_col_no_bgcolor">
+                  <div
+                    class="s_website_form_field mb-3 col-12 s_website_form_custom s_website_form_required"
+                    data-type="char" data-visibility-condition=""
+                    data-visibility-between="">
+                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                      <label class="col-form-label col-sm-auto s_website_form_label "
+                        style="width: 100px" for="om2emqrlsbld">
+                        <span class="s_website_form_label_content">RFC</span>
+                        <span class="s_website_form_mark"> *</span>
+                      </label>
+                      <div class="col-sm">
+                        <input type="text" placeholder="AAAA000000BBB"
+                          class="form-control s_website_form_input" name="rfc"
+                          required="1" id="rfc" />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="s_website_form_field mb-3 col-12 s_website_form_custom s_website_form_required"
+                    data-type="char" data-visibility-condition=""
+                    data-visibility-between="">
+                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                      <label class="col-form-label col-sm-auto s_website_form_label "
+                        style="width: 100px" for="om2emqrlsbld">
+                        <span class="s_website_form_label_content">Folio</span>
+                        <span class="s_website_form_mark"> *</span>
+                      </label>
+                      <div class="col-sm">
+                        <input type="text" placeholder="702-9125031-3510633"
+                          class="form-control s_website_form_input" name="folio"
+                          t-att-value="folio" required="1" id="folio" />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="s_website_form_field mb-3 col-12 s_website_form_custom s_website_form_required"
+                    data-type="char" data-name="Field" data-visibility-condition=""
+                    data-visibility-between="">
+                    <div class="row s_col_no_resize s_col_no_bgcolor">
+
+                      <!-- <label class="col-form-label col-sm-auto s_website_form_label "
+                        style="width:100px" for="om2emqrlsbld">
+
+
+                        <span class="s_website_form_label_content">Su nombre</span>
+
+                        <span class="s_website_form_mark"> *</span>
+
+
+                      </label>
+                      <div class="col-sm">
+                      </div> -->
+                      <button type="submit" class="btn btn-primary mb-2 o_default_snippet_text"
+                        data-bs-original-title="" title="" aria-describedby="popover980239">Buscar</button>
+
+                    </div>
+                  </div>
+                  <spa t-if="message_error" t-esc="message_error" />
+
+                </div>
+              </form>
+            </p>
+          </div>
+
+          <div class="col-lg-6 pt16 pb16 o_colored_level">
+            <img
+              src="/es_MX/web_editor/image_shape/website.s_text_image_default_image/web_editor/pattern/pattern_points_1.svg?c1=o-color-1"
+              class="img img-fluid mx-auto" alt="" data-shape="web_editor/pattern/pattern_points_1"
+              data-original-mimetype="image/jpeg" data-file-name="image_content_19.svg"
+              data-shape-colors="o-color-1;;;;" loading="lazy" data-original-id="572721"
+              data-original-src="/theme_clean/static/src/img/content/image_content_19.jpg"
+              data-mimetype="image/svg+xml" data-bs-original-title="" title=""
+              aria-describedby="tooltip790973" style="" />
+          </div>
+          <div class="s_hr text-start pt32 pb32" data-snippet="s_hr" data-name="Separador">
+            <hr class="w-100 mx-auto" style="border-top-width: 1px; border-top-style: solid;" />
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <template id="portal_selfbilling_step_2">
+    <div class="pt70 pb70 container s_allow_columns">
+      <h3 style="text-align: center;">
+        Datos fiscales
+      </h3>
+    </div>
+    <div class="pl150 pr150">
+      <form action="/billing" method="post" enctype="multipart/form-data"
+        class="o_mark_required">
+        <div class="s_website_form_rows row s_col_no_bgcolor">
+          <input type="hidden" name="sale_id" t-att-value="sale_order.id" />
+          <input type="hidden" name="partner_id" t-att-value="partner.id if partner else 0" />
+          <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+          <input type="hidden" name="step" value="self-billing" />
+
+          <div
+            class="s_website_form_field mb-3 col-12 s_website_form_custom s_website_form_required"
+            data-type="char" data-name="Field" data-visibility-condition=""
+            data-visibility-between="">
+            
+            <div class="row s_col_no_resize s_col_no_bgcolor">
+              <label class="col-form-label col-sm-auto s_website_form_label "
+              style="width: 200px" for="om2emqrlsbld">
+              <span class="s_website_form_label_content">RFC</span>
+              <span class="s_website_form_mark"> *</span>
+            </label>
+            <div class="col-sm">
+              <input type="text" t-att-value="rfc"
+                class="form-control s_website_form_input" name="rfc"
+                required="1"  readonly="1" id="rfc" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="s_website_form_field mb-3 col-12 s_website_form_custom s_website_form_required"
+            data-type="char" data-name="Field" data-visibility-condition=""
+            data-visibility-between="">
+            <div class="row s_col_no_resize s_col_no_bgcolor">
+              <label class="col-form-label col-sm-auto s_website_form_label "
+                style="width: 200px" for="om2emqrlsbld">
+                <span class="s_website_form_label_content">Razón social</span>
+                <span class="s_website_form_mark"> *</span>
+              </label>
+              <div class="col-sm">
+                <input type="text" class="form-control s_website_form_input" name="partner_name"
+                  required="1" data-fill-with="name" id="om2emqrlsbld"
+                  t-att-value=" partner.name if partner else '' " />
+              </div>
+            </div>
+          </div>
+          <div class="s_website_form_field mb-3 col-12 s_website_form_custom"
+            data-type="tel" data-name="Field" data-visibility-condition=""
+            data-visibility-between="">
+            <div class="row s_col_no_resize s_col_no_bgcolor">
+              <label class="col-form-label col-sm-auto s_website_form_label "
+                style="width: 200px" for="o7z8ii6mh2v8">
+                <span class="s_website_form_label_content">Código postal</span>
+                <span class="s_website_form_mark"> *</span>
+              </label>
+              <div class="col-sm">
+                <input type="tel" class="form-control s_website_form_input" name="partner_zip_code"
+                  required="1"
+                  data-fill-with="phone" id="o7z8ii6mh2v8"
+                  t-att-value="partner.zip if partner else '' " />
+              </div>
+            </div>
+          </div>
+          <div class="s_website_form_field mb-3 col-12  s_website_form_model_required  "
+            data-type="email" data-name="Field">
+            <div class="row s_col_no_resize s_col_no_bgcolor">
+              <label class="col-form-label col-sm-auto s_website_form_label "
+                style="width: 200px" for="o7j6l3y6tctf">
+                <span class="s_website_form_label_content">Régimen fiscal</span>
+                <span class="s_website_form_mark"> *</span>
+              </label>
+              <div class="col-sm">
+                <select class="form-control s_website_form_input" name="partner_fiscal_regime"
+                  required="true">
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='false' else 0 "
+                    value="" style=""></option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='601' else 0 "
+                    value="601">General de Ley Personas Morales</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='603' else 0 "
+                    value="603">Personas Morales con Fines no Lucrativos</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='605' else 0 "
+                    value="605">Sueldos y Salarios e Ingresos Asimilados a
+                    Salarios</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='606' else 0 "
+                    value="606">Arrendamiento</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='607' else 0 "
+                    value="607">Régimen de Enajenación o Adquisición de Bienes</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='608' else 0 "
+                    value="608">Demás ingresos</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='609' else 0 "
+                    value="609">Consolidación</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='610' else 0 "
+                    value="610">Residentes en el Extranjero sin Establecimiento
+                    Permanente en México</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='611' else 0 "
+                    value="611">Ingresos por Dividendos (socios y accionistas)</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='612' else 0 "
+                    value="612">Personas Físicas con Actividades Empresariales y
+                    Profesionales</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='614' else 0 "
+                    value="614">Ingresos por intereses</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='615' else 0 "
+                    value="615">Régimen de los ingresos por obtención de premios</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='616' else 0 "
+                    value="616">Sin obligaciones fiscales</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='620' else 0 "
+                    value="620">Sociedades Cooperativas de Producción que optan
+                    por diferir sus ingresos</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='621' else 0 "
+                    value="621">Incorporación Fiscal</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='622' else 0 "
+                    value="622">Actividades Agrícolas, Ganaderas, Silvícolas y
+                    Pesqueras</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='623' else 0 "
+                    value="623">Opcional para Grupos de Sociedades</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='624' else 0 "
+                    value="624">Coordinados</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='625' else 0 "
+                    value="625">Régimen de las Actividades Empresariales con
+                    ingresos a través de Plataformas Tecnológicas</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='626' else 0 "
+                    value="626">Régimen Simplificado de Confianza - RESICO</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='628' else 0 "
+                    value="628">Hidrocarburos</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='629' else 0 "
+                    value="629">De los Regímenes Fiscales Preferentes y de las
+                    Empresas Multinacionales</option>
+                  <option
+                    t-att-selected="1 if partner and partner.l10n_mx_edi_fiscal_regime=='630' else 0 "
+                    value="630">Enajenación de acciones en bolsa de valores</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="s_website_form_field mb-3 col-12 s_website_form_custom   "
+            data-type="char" data-name="Field">
+            <div class="row s_col_no_resize s_col_no_bgcolor">
+              <label class="col-form-label col-sm-auto s_website_form_label "
+                style="width: 200px" for="o4re2yndahtb">
+                <span class="s_website_form_label_content">Forma de pago </span>
+                <span class="s_website_form_mark"> *</span>
+              </label>
+              <div class="col-sm">
+                <select class="form-control s_website_form_input" name="partner_payment_method"
+                  required="true">
+                  <option value="" style=""></option>
+                  <t t-foreach="payment_methods" t-as="payment_method">
+                    <option t-att-value="payment_method.id" t-esc="payment_method.name" />
+                  </t>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="s_website_form_field mb-3 col-12  s_website_form_model_required  "
+            data-type="char" data-name="Field">
+            <div class="row s_col_no_resize s_col_no_bgcolor">
+              <label class="col-form-label col-sm-auto s_website_form_label "
+                style="width: 200px" for="ouh5wikjsjar">
+                <span class="s_website_form_label_content">Uso</span>
+                <span class="s_website_form_mark"> *</span>
+              </label>
+              <div class="col-sm">
+                <select class="form-control s_website_form_input" name="partner_use_cfdi"
+                  required="true">
+                  <option value="" style=""></option>
+                  <option value="G01">Adquisición de mercancías</option>
+                  <option value="G02">Devoluciones, descuentos o bonificaciones</option>
+                  <option value="G03">Gastos en general</option>
+                  <option value="I01">Construcciones</option>
+                  <option value="I02">Mobilario y equipo de oficina por inversiones</option>
+                  <option value="I03">Equipo de transporte</option>
+                  <option value="I04">Equipo de cómputo y accesorios</option>
+                  <option value="I05">Dados, troqueles, moldes, matrices y herramental</option>
+                  <option value="I06">Comunicaciones telefónicas</option>
+                  <option value="I07">Comunicaciones satelitales</option>
+                  <option value="I08">Otra maquinaria y equipo</option>
+                  <option value="D01">Honorarios médicos, dentales y gastos
+                    hospitalarios.</option>
+                  <option value="D02">Gastos médicos por incapacidad o discapacidad</option>
+                  <option value="D03">Gastos funerarios</option>
+                  <option value="D04">Donativos</option>
+                  <option value="D05">Intereses reales efectivamente pagados por
+                    créditos hipotecarios (casa habitación)</option>
+                  <option value="D06">Aportaciones voluntarias al SAR</option>
+                  <option value="D07">Primas por seguros de gastos médicos</option>
+                  <option value="D08">Gastos de transportación escolar obligatoria</option>
+                  <option value="D09">Depósitos en cuentas para el ahorro, primas que
+                    tengan como base planes de pensiones.</option>
+                  <option value="D10">Pagos por servicios educativos (colegiaturas)</option>
+                  <option value="S01">Sin efectos fiscales</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- Extras -->
+          <div class="s_website_form_field mb-3 col-12 s_website_form_model_required"
+            data-type="tel" data-name="Field" data-visibility-condition=""
+            data-visibility-between="">
+            <div class="row s_col_no_resize s_col_no_bgcolor">
+              <label class="col-form-label col-sm-auto s_website_form_label "
+                style="width: 200px" for="o7z8ii6mh2v8">
+                <span class="s_website_form_label_content">Teléfono</span>           
+                <span class="s_website_form_mark"> *</span>
+
+              </label>
+              <div class="col-sm">
+                <input type="tel" required="1" class="form-control s_website_form_input" name="partner_phone"
+                  data-fill-with="phone" id="o7z8ii6mh2v8"
+                  t-att-value="partner.phone if partner else '' " />
+              </div>
+            </div>
+          </div>
+          <div class="s_website_form_field mb-3 col-12 s_website_form_model_required"
+            data-type="tel" data-name="Field" data-visibility-condition=""
+            data-visibility-between="">
+            <div class="row s_col_no_resize s_col_no_bgcolor">
+              <label class="col-form-label col-sm-auto s_website_form_label "
+                style="width: 200px" for="o7z8ii6mh2v8">
+                <span class="s_website_form_label_content">E-mail</span>                
+                <span class="s_website_form_mark"> *</span>
+
+              </label>
+              <div class="col-sm">
+                <input type="email" required="1" class="form-control s_website_form_input" name="partner_email"
+                  data-fill-with="phone" id="o7z8ii6mh2v8"
+                  t-att-value="partner.email if partner else '' " />
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: center;" class="mb-0 py-2 col-12 s_website_form_submit"
+            data-name="Submit Button">
+            <div style="width: 200px;" class="s_website_form_label"></div>
+            <a href="/billing" role="button"
+              class="btn btn-danger btn-lg s_website_form_send o_default_snippet_text">
+              Cancelar</a>
+
+            <button type="submit" role="button"
+              class="btn btn-primary btn-lg s_website_form_send o_default_snippet_text">
+              Generar factura CFDI</button>
+            <span id="s_website_form_result"></span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </template>
+
+  <template id="portal_selfbilling_step_3">
+    <div>
+      <section
+        class="s_title pt4 pb4 o_full_screen_height parallax s_parallax_is_fixed o_colored_level"
+        data-vcss="001" data-scroll-background-ratio="1"
+        data-oe-shape-data="{shape:web_editor/Origins/07_002,flip:[]}"
+        data-snippet="s_title" data-name="Título"
+        style="background-image: none; --darkreader-inline-bgimage: none; min-height: 110px !important;"
+        data-darkreader-inline-bgimage="">
+        <!-- <span class="s_parallax_bg oe_img_bg" style="background-image:
+        url('/web/image/website.s_banner_default_image');"></span>
+        <div class="o_we_bg_filter bg-black-50"></div>
+        <div class="o_we_shape o_web_editor_Origins_07_002"></div> -->
+        <div class="container s_allow_columns">
+          <h1 style="text-align: center;">
+            <b class="o_default_snippet_text">Autofacturación</b>
+          </h1>
+          <div style="text-align: center" t-if="message_error">
+            <p t-esc="message_error" />
+
+            <a href="/billing" class="btn btn-primary">
+              Generar otra factura!
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </template>
+</odoo>

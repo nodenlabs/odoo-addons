@@ -1,0 +1,216 @@
+================================================================================
+NODEN LABS — LICENSE AGREEMENT / ACUERDO DE LICENCIA
+Copyright © 2026 Noden Labs by Sentilis (https://sentilis.me/noden)
+All rights reserved. / Todos los derechos reservados.
+================================================================================
+
+The Noden Labs modules in this repository are licensed under the Odoo
+Proprietary License v1.0 (OPL-1). The terms below describe how Noden Labs
+applies that license. In case of conflict, the OPL-1 prevails for purchases
+made through the Odoo App Store.
+See: https://www.odoo.com/documentation/user/legal/licenses/licenses.html
+
+Los módulos de Noden Labs incluidos en este repositorio se distribuyen bajo la
+Odoo Proprietary License v1.0 (OPL-1). Los términos siguientes describen cómo
+Noden Labs aplica esa licencia. En caso de conflicto, prevalece la OPL-1 para
+las compras realizadas a través del Odoo App Store.
+
+
+================================================================================
+SCOPE / ALCANCE
+================================================================================
+
+This license applies ONLY to the modules whose `__manifest__.py` declares Noden
+Labs as the author and OPL-1 as the license. Each module carries that statement
+in its own manifest and in the header of every source file, which is what
+determines whether it is covered.
+
+Any other directory contains third-party code that is NOT covered by this
+license and remains under its own terms and its own copyright holders. Consult
+the manifest or the LICENSE file of each one.
+
+Nothing in this file grants Noden Labs any right over that code, nor restricts
+the rights those licenses grant you over it.
+
+--------------------------------------------------------------------------------
+
+Esta licencia aplica ÚNICAMENTE a los módulos cuyo `__manifest__.py` declara a
+Noden Labs como autor y OPL-1 como licencia. Cada módulo lleva esa declaración
+en su propio manifest y en la cabecera de cada fichero fuente, que es lo que
+determina si está cubierto.
+
+Cualquier otro directorio contiene código de terceros que NO está cubierto por
+esta licencia y conserva sus propios términos y titulares de derechos. Consulte
+el manifest o el fichero LICENSE de cada uno.
+
+Nada en este fichero otorga a Noden Labs derecho alguno sobre ese código, ni
+restringe los derechos que esas licencias le conceden a usted sobre él.
+
+
+================================================================================
+ENGLISH
+================================================================================
+
+LICENSE GRANTED
+
+Noden Labs grants the purchaser of a covered module ("the Licensee") a limited,
+non-exclusive, and non-transferable license to:
+
+  ✓ Install and run the module in the Odoo databases covered by the purchase
+  ✓ Modify the source code to adapt it to the Licensee's own environment
+  ✓ Receive updates and fixes released for the purchased version
+
+--------------------------------------------------------------------------------
+
+RESTRICTIONS
+
+The Licensee is NOT authorized to:
+
+  ✗ Redistribute, sell, sublicense, or transfer the module to third parties
+  ✗ Publish the module or any derivative code on the Odoo App Store
+    or any other marketplace
+  ✗ Deploy the module in databases not covered by the purchase — a partner
+    or integrator deploying it for end clients requires one license per client
+  ✗ Remove or alter the copyright notices in any source file
+
+--------------------------------------------------------------------------------
+
+INTELLECTUAL PROPERTY
+
+The source code, architecture, and documentation of the covered modules are the
+exclusive property of Noden Labs. This license does not transfer any intellectual
+property rights to the Licensee or the end client.
+
+--------------------------------------------------------------------------------
+
+THIRD-PARTY LICENSES
+
+The covered modules are designed to work with Odoo, which is distributed under
+its own license (LGPL-3 for Community edition, proprietary for Enterprise
+edition). This license applies exclusively to the code developed by Noden Labs.
+Use of Odoo is subject to the terms of Odoo S.A.
+See: https://www.odoo.com/documentation/user/legal/licenses/licenses.html
+
+--------------------------------------------------------------------------------
+
+TERM
+
+This license is perpetual for the purchased version of the module. It does not
+automatically cover future major Odoo versions, which may be licensed
+separately. Any use outside these terms requires written authorization from
+Noden Labs.
+
+--------------------------------------------------------------------------------
+
+WARRANTY DISCLAIMER
+
+THE MODULE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. Noden Labs does not
+warrant that the module will be uninterrupted or error-free, nor does it
+warrant the availability or behavior of any third-party service the module
+integrates with.
+
+--------------------------------------------------------------------------------
+
+LIMITATION OF LIABILITY
+
+To the maximum extent permitted by applicable law, Noden Labs shall not be
+liable for any indirect, incidental, special, or consequential damages, nor
+for loss of profits, revenue, or data, arising from the use of or inability
+to use the module. Noden Labs' total liability shall not exceed the amount
+paid by the Licensee for this license.
+
+--------------------------------------------------------------------------------
+
+CONTACT
+
+For additional licenses, new projects, or support:
+noden@sentilis.me
+https://sentilis.me/noden
+
+
+================================================================================
+ESPAÑOL
+================================================================================
+
+LICENCIA OTORGADA
+
+Noden Labs otorga al comprador de un módulo cubierto ("el Licenciatario") una
+licencia limitada, no exclusiva e intransferible para:
+
+  ✓ Instalar y ejecutar el módulo en las bases de datos Odoo cubiertas por la compra
+  ✓ Modificar el código fuente para adaptarlo al entorno propio del Licenciatario
+  ✓ Recibir actualizaciones y correcciones publicadas para la versión adquirida
+
+--------------------------------------------------------------------------------
+
+RESTRICCIONES
+
+El Licenciatario NO está autorizado a:
+
+  ✗ Redistribuir, vender, sublicenciar o transferir el módulo a terceros
+  ✗ Publicar el módulo o código derivado en el Odoo App Store
+    u otro marketplace
+  ✗ Desplegar el módulo en bases de datos no cubiertas por la compra — un partner
+    o integrador que lo despliegue para clientes finales requiere una licencia
+    por cada cliente
+  ✗ Remover o modificar los avisos de copyright en cualquier archivo fuente
+
+--------------------------------------------------------------------------------
+
+PROPIEDAD INTELECTUAL
+
+El código fuente, arquitectura y documentación de los módulos cubiertos son
+propiedad exclusiva de Noden Labs. Esta licencia no transfiere ningún derecho de
+propiedad intelectual al Licenciatario ni al cliente final.
+
+--------------------------------------------------------------------------------
+
+LICENCIAS DE TERCEROS
+
+Los módulos cubiertos están diseñados para funcionar con Odoo, que se distribuye
+bajo su propia licencia (LGPL-3 para la edición Community, propietaria para
+Enterprise). Esta licencia aplica únicamente al código desarrollado por Noden
+Labs. El uso de Odoo está sujeto a los términos de Odoo S.A.
+Ver: https://www.odoo.com/documentation/user/legal/licenses/licenses.html
+
+--------------------------------------------------------------------------------
+
+VIGENCIA
+
+Esta licencia es perpetua para la versión adquirida del módulo. No cubre
+automáticamente versiones mayores futuras de Odoo, que pueden licenciarse
+por separado. Cualquier uso fuera de estos términos requiere autorización
+escrita de Noden Labs.
+
+--------------------------------------------------------------------------------
+
+EXCLUSIÓN DE GARANTÍAS
+
+EL MÓDULO SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O
+IMPLÍCITA, INCLUYENDO SIN LIMITACIÓN LAS GARANTÍAS DE COMERCIABILIDAD,
+IDONEIDAD PARA UN FIN PARTICULAR Y NO INFRACCIÓN. Noden Labs no garantiza que
+el módulo funcione de forma ininterrumpida o libre de errores, ni garantiza la
+disponibilidad o el comportamiento de los servicios de terceros con los que el
+módulo se integra.
+
+--------------------------------------------------------------------------------
+
+LIMITACIÓN DE RESPONSABILIDAD
+
+En la máxima medida permitida por la ley aplicable, Noden Labs no será
+responsable por daños indirectos, incidentales, especiales o consecuentes, ni
+por lucro cesante, pérdida de ingresos o de datos, derivados del uso o la
+imposibilidad de uso del módulo. La responsabilidad total de Noden Labs no
+excederá el importe pagado por el Licenciatario por esta licencia.
+
+--------------------------------------------------------------------------------
+
+CONTACTO
+
+Para licencias adicionales, proyectos nuevos o soporte:
+noden@sentilis.me
+https://sentilis.me/noden
+
+================================================================================

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_selfbilling" model="ir.ui.view">
+        <field name="name">res.partner.form.selfbilling</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="l10n_mx_edi_usage" position="after">
+                <field name="selfbilling_auto" invisible="parent_id or 'MX' not in fiscal_country_codes"/>
+                <div colspan="2" invisible="not parent_id or 'MX' not in fiscal_country_codes">
+                    <p>La facturación automática se configura en
+                        <button name="open_commercial_entity" type="object" string="la empresa" class="oe_link"/></p>
+                </div>
+                <div colspan="2" class="alert alert-warning mb-2" role="alert"
+                     invisible="parent_id or not selfbilling_fiscal_warning">
+                    <strong>La facturación automática fallará con estos datos fiscales:</strong>
+                    <field name="selfbilling_fiscal_warning" nolabel="1"/>
+                </div>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_order_form_selfbilling" model="ir.ui.view">
+        <field name="name">sale.order.form.selfbilling</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <group name="sale_info" position="inside">
+                <field name="selfbilling_auto_state" invisible="not selfbilling_auto_state"/>
+                <field name="selfbilling_auto_info" invisible="not selfbilling_auto_info"/>
+            </group>
+        </field>
+    </record>
+
+    <record id="view_sales_order_filter_selfbilling" model="ir.ui.view">
+        <field name="name">sale.order.search.selfbilling</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <filter name="my_sale_orders_filter" position="after">
+                <filter name="filter_selfbilling_auto_error" string="Facturación automática con error"
+                        domain="[('selfbilling_auto_state', '=', 'error')]"/>
+            </filter>
+        </field>
+    </record>
+</odoo>
